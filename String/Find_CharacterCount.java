@@ -33,7 +33,7 @@ import java.util.*;
 
     [ 공부 해야 할 내용 ]
     1. 문자열 대소문자로 수정하는것. str = str.toUpperCase(); / str = str.toLowerCase();
-    2. 문자 대소문자로 수정하는것. c = Character.toUpperCase(c); / c = Character.toLowerCase();
+    2. 문자 대소문자로 수정하는것. c = Character.toUpperCase(c); / c = Character.toLowerCase(c);
     3. 문자열을 루프문 돌리는 방법 for(char c : str.toCharArray())
 
  */
