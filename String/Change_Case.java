@@ -63,11 +63,30 @@ public class Change_Case {
         return answer;
 
     }
+
+    // Stream 을 이용한 메서드 ( 추후 Stream 을 공부하고 다시 확인할 것 )
+    public static String normalChange_stream(String str) {
+        return str.chars()
+                .mapToObj(c -> Character.isUpperCase(c) ? Character.toLowerCase((char) c) : Character.toUpperCase((char) c))
+                .collect(StringBuilder::new, StringBuilder::append, StringBuilder::append)
+                .toString();
+    }
+    public static String ASCII_Change_stream(String str) {
+        return str.chars()
+                .mapToObj(c -> (c >= 65 && c <= 90) ? (char)(c + 32) : (c >= 97 && c <= 122) ? (char)(c - 32) : (char)c)
+                .collect(StringBuilder::new, StringBuilder::append, StringBuilder::append)
+                .toString();
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
         System.out.println(normalChange(str)); // 일반 풀이
         System.out.println(ASCII_Change(str)); // 아스키 코드를 활용한 풀이
+
+        // Stream 을 이용한 풀이
+        System.out.println(normalChange_stream(str));
+        System.out.println(ASCII_Change_stream(str));
     }
 
 }

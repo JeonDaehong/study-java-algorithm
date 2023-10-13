@@ -54,6 +54,15 @@ public class Find_CharacterCount {
         return answer;
     }
 
+    // Stream을 이용한 메서드
+    public static int find_stream(String sentence, char character) {
+        sentence = sentence.toLowerCase();
+        char finalCharacter = Character.toLowerCase(character);
+        return (int) sentence.chars()
+                .filter(c -> c == finalCharacter)
+                .count();
+    }
+
     public static void main(String[] args) {
 
         int answer;
@@ -63,6 +72,7 @@ public class Find_CharacterCount {
         char character = scan.next().charAt(0); // 한 글자만 반영
 
         System.out.println(find(sentence, character));
+        System.out.println(find_stream(sentence, character));
 
     }
 
