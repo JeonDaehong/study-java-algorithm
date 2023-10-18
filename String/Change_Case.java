@@ -22,7 +22,7 @@ import java.util.*;
 
 
     [ 풀이 시간 ]
-    11:00 ~ 11:06 ( 직접풀이 : 정답 )
+    1. 11:00 ~ 11:06 ( 직접풀이 : 정답 )
 
     [ 공부 해야 할 내용 ]
     1. 해당 문자가 대문자인지 소문자인지 확인하는 방법 : Character.isUpperCase(c); / Character.isLowerCase(c);
