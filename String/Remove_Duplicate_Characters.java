@@ -34,7 +34,8 @@ import java.util.*;
        a.equals(b); 를 해도 false; 가 나온다는 것이다.
        이럴경우
        a.toString().equals(b.toString()); 이렇게 String 타입으로 변환을 한 후, equals 로 비교해주어야 한다.
-
+    4. for문으로 String을 돌려서 , str.indexOf(str.charAt(i)) 와 i 가 같을 경우만 answer에 누적시키는 방법을 사용해도 됨.
+       --> indexOf는 해당 데이터가 처음 시작되는 index를 반환함.
 
  */
 
@@ -55,10 +56,25 @@ public class Remove_Duplicate_Characters {
         return answer.toString();
     }
 
+    public static String removeCharactersIndexOf(String str) {
+
+        StringBuilder answer = new StringBuilder();
+
+        for ( int i = 0; i < str.length(); i++ ) {
+            if ( str.indexOf(str.charAt(i)) == i ) {
+                answer.append(str.charAt(i));
+            }
+        }
+
+        return answer.toString();
+
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
         System.out.println(removeCharacters(str));
+        System.out.println(removeCharactersIndexOf(str));
     }
 
 }

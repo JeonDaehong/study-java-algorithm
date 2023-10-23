@@ -25,7 +25,10 @@ import java.util.*;
 
 
     [ 공부 해야 할 내용 ]
-    1.
+    1. String tmp = new StringBuilder(str).reverse().toString(); 이렇게 StringBuilder 를 활용하여 뒤집은 String 을 바로 구할 수 있음.
+    2. String 끼리 비교할 때 str.equalsIgnoreCase(tmp) 이렇게 비교하면 대소문자를 구분하지 않고 비교할 수 있음.
+      --> equals == 대소문자 구분하여 비교
+      --> equalsIgnoreCase == 대소문자 구분하지 않고 비교
 
 
  */
@@ -49,10 +52,20 @@ public class Palindrome_String {
         return "YES";
     }
 
+    // StringBuilder.reverse().toString(); 을 활용한 방법
+    public static String palindromeString2(String str) {
+
+        String tmp = new StringBuilder(str).reverse().toString();
+        if ( !str.equalsIgnoreCase(tmp) ) return "NO";
+
+        return "YES";
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
         System.out.println(palindromeString(str));
+        System.out.println(palindromeString2(str));
     }
 
 }
