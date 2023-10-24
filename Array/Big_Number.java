@@ -46,9 +46,10 @@ public class Big_Number {
         for (int i=0; i<count; i++) {
             iArr[i] = scan.nextInt();
         }
-        List<Integer> iList = bigNumberExport(iArr);
-        for ( int i : iList ) {
+
+        for ( int i :  bigNumberExport(iArr) ) {
             System.out.print(i + " ");
         }
+
     }
 }
