@@ -57,6 +57,7 @@ public class Eratosthenes_Sieve {
 
     // 에라토스테네스의 체 활용
     public static int eratosthenesSieve(int num) {
+
         boolean[] isPrime = new boolean[num+1];
         Arrays.fill(isPrime, true);
         isPrime[0] = isPrime[1] = false;
@@ -70,8 +71,27 @@ public class Eratosthenes_Sieve {
         }
 
         int answer = 0;
-        for (boolean a : isPrime) {
-            if (a) answer++;
+        for ( boolean tf : isPrime ) {
+            if(tf) answer++;
+        }
+
+        return answer;
+    }
+
+    // 에라토스테네스의 체 2번째 방법
+    public static int eratosthenesSieve2(int num) {
+
+        int answer = 0;
+        boolean[] isPrime = new boolean[num+1];
+        Arrays.fill(isPrime, true);
+
+        for ( int i=2; i<=num; i++) {
+            if(isPrime[i]) {
+                answer ++;
+                for ( int j=i; j<=num; j+=i ) {
+                    isPrime[j] = false;
+                }
+            }
         }
 
         return answer;
@@ -83,12 +103,13 @@ public class Eratosthenes_Sieve {
         int num = scan.nextInt();
         //System.out.println(primeNumbers_timeLimitExceeCode(num));
 
-        long startTime = System.currentTimeMillis();
+        //long startTime = System.currentTimeMillis();
 
         System.out.println(eratosthenesSieve(num));
+        System.out.println(eratosthenesSieve2(num));
 
-        long endTime = System.currentTimeMillis();
-        System.out.println((endTime - startTime) + " ms");
+        //long endTime = System.currentTimeMillis();
+        //System.out.println((endTime - startTime) + " ms");
 
     }
 }

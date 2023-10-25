@@ -30,7 +30,7 @@ public class Fibonacci_Sequence {
         List<Integer> iList = new ArrayList<>();
 
         for ( int i=0; i<number; i++ ) {
-            if (iList.size() <= 1) {
+            if (iList.size() < 2) {
                 iList.add(1);
             } else {
                 iList.add(iList.get(i-2) + iList.get(i-1));
@@ -38,6 +38,19 @@ public class Fibonacci_Sequence {
         }
         return iList;
     }
+
+    // 뱌열이나 List를 사용하지 않고 하는 손코딩 방법
+    public static void originalFibonacci(int number) {
+        int a = 1, b = 1, c;
+        System.out.print(a + " " + b + " ");
+        for (int i=2; i<number; i++) {
+            c = a + b;
+            System.out.print(c + " ");
+            a = b;
+            b = c;
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int number = scan.nextInt();
@@ -45,5 +58,8 @@ public class Fibonacci_Sequence {
         for ( int i : iList ) {
             System.out.print(i + " ");
         }
+
+        System.out.print("\n");
+        originalFibonacci(number);
     }
 }

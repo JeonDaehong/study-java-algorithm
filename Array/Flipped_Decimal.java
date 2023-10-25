@@ -27,24 +27,63 @@ import java.util.*;
     [ 공부해야 할 내용 ]
     1. 숫자를 뒤집을 때, String 으로 바꾼 후 StringBuilder 를 이용하면 편하게 뒤집을 수 있다.
 
+    2. StringBuilder를 못쓰게 하는 경우가 있을 수 있으므로, 숫자 뒤집는 공식 외울 것.
+        int res = 0;
+        while (i != 0) {
+            res = (res * 10) + (i % 10);
+            i /= 10;
+        }
+
+    3. 소수 구하는 메서드를 외울 것.
+        public static boolean isPrime(int num) {
+            if ( num == 1 ) return false;
+            for ( int i=2; i<num; i++ ) {
+                if ( num % i == 0 ) return false;
+            }
+            return true;
+        }
+
 
  */
 public class Flipped_Decimal {
+
+    // 소수인지 확인해주는 함수
+    public static boolean isPrime(int num) {
+        if ( num == 1 ) return false;
+        for ( int i=2; i<num; i++ ) {
+            if ( num % i == 0 ) return false;
+        }
+        return true;
+    }
+
+    // Solution 1
     public static List<Integer> flippedDecimal(int[] iArr) {
         List<Integer> iList = new ArrayList<>();
         for (int i : iArr) {
             String tmp = String.valueOf(i);
             tmp = new StringBuilder(tmp).reverse().toString();
             i = Integer.parseInt(tmp);
-            int checkCount = 0;
-            for ( int j=2; j<=i; j++) {
-                if (i%j == 0) checkCount ++;
-                if (checkCount > 1) break;
-            }
-            if (checkCount == 1) iList.add(i);
+
+            if (isPrime(i)) iList.add(i);
         }
         return iList;
     }
+
+    // Solution 2
+    public static List<Integer> anotherSolution(int[] iArr) {
+        List<Integer> iList = new ArrayList<>();
+        for (int i : iArr) {
+            int res = 0;
+            while (i != 0) {
+                res = (res * 10) + (i % 10);
+                i /= 10;
+            }
+
+            if (isPrime(res)) iList.add(res);
+        }
+        return iList;
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int cnt = scan.nextInt();
@@ -52,8 +91,12 @@ public class Flipped_Decimal {
         for ( int i=0; i<cnt; i++ ) {
             iArr[i] = scan.nextInt();
         }
-        List<Integer> iList = flippedDecimal(iArr);
-        for (int i : iList) {
+
+        for (int i : flippedDecimal(iArr)) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+        for (int i : anotherSolution(iArr)) {
             System.out.print(i + " ");
         }
     }

@@ -42,8 +42,7 @@ public class Visible_Student {
         List<Integer> iList = new ArrayList<>();
 
         for ( int i : iArr ) {
-            if ( iList.size() == 0 ) iList.add(i);
-            if ( i > Collections.max(iList) ) {
+            if ( iList.size() == 0 || i > Collections.max(iList) ) {
                 iList.add(i);
             }
         }
@@ -52,6 +51,26 @@ public class Visible_Student {
 
         return answer;
     }
+
+    // max 변수를 활용한 방법
+    public static int originalSolution(int[] iArr) {
+
+        int answer = 0;
+        int max = 0;
+        List<Integer> iList = new ArrayList<>();
+
+        for ( int i : iArr ) {
+            if ( iList.size() == 0 || i > max ) {
+                max = i;
+                iList.add(i);
+            }
+        }
+
+        answer = iList.size();
+
+        return answer;
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int count = scan.nextInt();
@@ -60,5 +79,6 @@ public class Visible_Student {
             iArr[i] = scan.nextInt();
         }
         System.out.println(visibleStudent(iArr));
+        System.out.println(originalSolution(iArr));
     }
 }
