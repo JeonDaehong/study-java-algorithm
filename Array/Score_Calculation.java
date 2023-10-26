@@ -35,8 +35,6 @@ import java.util.*;
 
  */
 
-import java.util.Scanner;
-
 public class Score_Calculation {
     public static int calculation(int qCount, int[] scoreArr) {
         int myScore = 0;
