@@ -1,4 +1,4 @@
-package Array;
+package array;
 import java.util.*;
 /*
     7. 점수 계산
@@ -61,6 +61,22 @@ public class Score_Calculation {
 
         return myScore;
     }
+
+    // 더 간단하게 누적해서 넣을 수 있는 Solution
+    public static int calculation2(int qCount, int[] scoreArr) {
+        int answer = 0, cnt = 0;
+        for ( int i=0; i<qCount; i++ ) {
+            if (scoreArr[i] == 1) {
+                cnt ++;
+                answer += cnt;
+            } else {
+                cnt = 0;
+            }
+        }
+
+        return answer;
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int qCount = scan.nextInt();

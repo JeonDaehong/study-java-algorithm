@@ -1,4 +1,4 @@
-package String;
+package string;
 import java.util.*;
 /*
     10. 가장 짧은 문자거리

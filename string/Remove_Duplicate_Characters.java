@@ -1,4 +1,4 @@
-package String;
+package string;
 import java.util.*;
 /*
     6. 중복문자제거

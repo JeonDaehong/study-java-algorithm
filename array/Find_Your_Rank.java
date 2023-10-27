@@ -1,4 +1,4 @@
-package Array;
+package array;
 import java.util.*;
 /*
     8. 등수 구하기

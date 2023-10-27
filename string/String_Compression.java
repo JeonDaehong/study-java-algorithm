@@ -1,4 +1,4 @@
-package String;
+package string;
 import java.util.Scanner;
 /*
     11. 문자열 압축

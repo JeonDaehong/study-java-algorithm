@@ -1,4 +1,4 @@
-package Array;
+package array;
 import java.util.*;
 /*
     11. 임시반장 정하기

@@ -1,4 +1,4 @@
-package Array;
+package array;
 import java.util.*;
 /*
     3. 가위 바위 보

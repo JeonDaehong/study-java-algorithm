@@ -1,4 +1,4 @@
-package Array;
+package array;
 import java.util.*;
 /*
     1. 큰 수 출력하기

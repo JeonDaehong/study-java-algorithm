@@ -1,4 +1,4 @@
-package String;
+package string;
 import java.util.Scanner;
 /*
     12. 암호

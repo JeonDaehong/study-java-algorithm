@@ -1,4 +1,4 @@
-package Array;
+package array;
 import java.util.*;
 /*
     5. 소수(에라토스테네스 체)

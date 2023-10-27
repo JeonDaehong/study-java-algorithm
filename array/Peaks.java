@@ -1,4 +1,4 @@
-package Array;
+package array;
 import java.util.*;
 /*
     10. 봉우리
@@ -32,6 +32,10 @@ import java.util.*;
 
     [ 풀이 시간 ]
     1. 10:15 ~ 10:29
+    
+    
+    [ 공부해야 할 내용 ]
+    1. int[] dx, int[] dy 를 활용한 풀이 방법 공부
 
 
  */
@@ -46,6 +50,28 @@ public class Peaks {
                         && peaksArr[i][j] > peaksArr[i][j+1] ) {
                     peaksCount ++;
                 }
+            }
+        }
+        return peaksCount;
+    }
+
+    // 정석적인 풀이 방법 ( 꼭 4방향만이 아닐 수 있으므로, if문만으로 하는건 바람직하지 못하다. )
+    static int[] dx = {-1, 0, 0, 1};
+    static int[] dy = {0, -1, 1, 0};
+    public static int peaksCount2(int count, int[][] peaksArr) {
+        int peaksCount = 0;
+        for ( int i = 1; i <= count; i ++ ) {
+            for ( int j = 1; j <= count; j ++ ) {
+                boolean check = true;
+                for (int k=0; k<dx.length; k++) {
+                    int nx = i + dx[k];
+                    int ny = i + dy[k];
+                    if ( peaksArr[i][j] <= peaksArr[nx][ny] ) {
+                        check = false;
+                        break;
+                    }
+                }
+                if ( check ) peaksCount ++;
             }
         }
         return peaksCount;

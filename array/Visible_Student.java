@@ -1,4 +1,4 @@
-package Array;
+package array;
 import java.util.*;
 /*
     2. 보이는 학생

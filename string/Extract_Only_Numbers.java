@@ -1,4 +1,4 @@
-package String;
+package string;
 import java.util.*;
 /*
     9. 숫자만 추출

@@ -1,4 +1,4 @@
-package Array;
+package array;
 import java.util.*;
 /*
     9. 격자판 최대합
@@ -31,6 +31,9 @@ import java.util.*;
     [ 풀이 시간 ]
     1. 09:40 ~ 09:53
 
+
+    [ 공부해야 하는 내용 ]
+    1. 정석 풀이 방법 외우기
 
  */
 public class Grid_Max_Sum {
@@ -69,7 +72,7 @@ public class Grid_Max_Sum {
 
     public static int gridMaxSum(int count, int[][] gridArr) {
 
-        int maxSum = 0;
+        int maxSum = Integer.MIN_VALUE;
         int tmp = 0;
 
         for (int i=0; i<count; i++) {
@@ -82,6 +85,32 @@ public class Grid_Max_Sum {
 
         return maxSum;
     }
+
+    // 정석적인 메서드
+    public static int gridMaxSum2(int count, int[][] gridArr) {
+        int answer = Integer.MIN_VALUE;
+        int sum1, sum2;
+        for ( int i=0; i<count; i++ ) {
+            sum1 = sum2 = 0;
+            for ( int j=0; j<count; j++ ) {
+                sum1 += gridArr[i][j];
+                sum2 += gridArr[j][i];
+            }
+            answer = Math.max(answer, sum1);
+            answer = Math.max(answer, sum2);
+        }
+
+        sum1 = sum2 = 0;
+        for (int i=0; i<count; i++) {
+            sum1 += gridArr[i][i];
+            sum2 += gridArr[i][count-i-1];
+        }
+        answer = Math.max(answer, sum1);
+        answer = Math.max(answer, sum2);
+        return answer;
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int count = scan.nextInt();

@@ -1,4 +1,4 @@
-package String;
+package string;
 import java.util.*;
 /*
     4. 단어 뒤집기
