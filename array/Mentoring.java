@@ -24,11 +24,12 @@ import java.util.*;
 
 
     [ 풀이 시간 ]
-    1. 11:45 ~
+    1. 10:50 ~ 11:20 ( 문제풀이 실패 )
+    2. 13:15 ~ 13:25 ( 공부 후 문제 풀이 : 성공 )
 
 
     [ 공부해야 할 내용 ]
-    1.
+    1. 문제의 접근을 잘 해야한다.
 
 
  */
@@ -38,7 +39,20 @@ public class Mentoring {
 
         int answer = 0;
 
-
+        for ( int i=1; i<=stuCount; i++ ) {              // 멘토x멘티의 경우의 수는 stuCount x stuCount 이므로, 2중 for문을 걸어준다. ( 등수 )
+            for ( int j=1; j<=stuCount; j++ ) {
+                int cnt = 0;                             // A가 B보다 잘 본 시험의 횟수를 카운팅할 변수 선언
+                for ( int k=0; k<testCount; k++ ) {      // 테스트 개수
+                    int pi = 0, pj = 0;
+                    for ( int l=0; l<stuCount; l++ ) {
+                        if ( iArr[k][l] == i ) pi = l;   // 멘토의 등수 저장
+                        if ( iArr[k][l] == j ) pj = l;   // 멘티의 등수 저장
+                    }
+                    if ( pi < pj ) cnt ++;  // 멘토가 멘티보다 등수가 높으면 cnt ++;
+                }
+                if ( cnt == testCount ) answer ++; // 모든 시험에서 멘토가 멘티보다 등수가 높으면 answer ++;
+            }
+        }
 
         return answer;
     }
@@ -47,8 +61,8 @@ public class Mentoring {
         int stuCount = scan.nextInt();
         int testCount = scan.nextInt();
         int[][] iArr = new int[testCount][stuCount];
-        for (int i=0; i<stuCount; i++) {
-            for (int j=0; j<testCount; j++) {
+        for (int i=0; i<testCount; i++) {
+            for (int j=0; j<stuCount; j++) {
                 iArr[i][j] = scan.nextInt();
             }
         }
