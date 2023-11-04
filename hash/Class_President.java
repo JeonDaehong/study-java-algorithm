@@ -25,6 +25,7 @@ import java.util.Scanner;
 
     [ 풀이 시간 ]
     1. 09:15 ~ 09:34 ( 풀이 실패 : Runtime Error )
+    2. 09:40 ~ 09:45 ( char 배열로 받던 scan을, String으로 받은 후 toCharArray() 로 계산하여 속도 문제 해결 )
 
 
     [ 공부해야 할 내용 ]
