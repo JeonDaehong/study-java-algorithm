@@ -1,6 +1,7 @@
 package hash;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 /*
     2. 아나그램
@@ -41,7 +42,7 @@ public class Anagram {
         }
 
         for ( char c : map1.keySet() ) {
-            if ( map1.get(c) != map2.get(c) ) return "NO";
+            if (!Objects.equals(map1.get(c), map2.get(c))) return "NO";
         }
 
         return "YES";
