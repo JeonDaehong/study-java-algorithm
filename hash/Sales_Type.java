@@ -3,7 +3,7 @@ import java.util.*;
 /*
     3. 매출액의 종류
 
-    날짜 : 2023-11-07
+    날짜 : 2023-11-07 / 2023-11-09
 
     [설명]
     현수의 아빠는 제과점을 운영합니다. 현수아빠는 현수에게 N일 동안의 매출기록을 주고 연속된 K일 동안의 매출액의 종류를
@@ -31,6 +31,7 @@ import java.util.*;
 
     [ 풀이 시간 ]
     1. 08:50 ~ 09:50 ( 풀이 실패 다시 풀어볼 것 )
+    2. 08:58 ~ 09:08 ( 풀이 성공, 그러나 괄호 잘 볼 것 !! 0
 
 
     [ 공부해야 할 내용 ]
@@ -41,20 +42,21 @@ import java.util.*;
 public class Sales_Type {
 
     public static List<Integer> solution(int n, int k, int[] arr) {
-        List<Integer> answer = new ArrayList<>();
-        Map<Integer, Integer> HM = new HashMap<>();
-        for ( int i=0; i<k-1; i++ ) {
-            HM.put(arr[i], HM.getOrDefault(arr[i], 0) + 1);
+        ArrayList<Integer> answerList = new ArrayList<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i=0; i<k-1; i++) {
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
         }
-        int pS = 0;
-        for ( int pE=k-1; pE<n; pE++ ) {
-            HM.put(arr[pE], HM.getOrDefault(arr[pE], 0) + 1);
-            answer.add(HM.size());
-            HM.put(arr[pS], HM.get(arr[pS])-1);
-            if (HM.get(arr[pS]) == 0 ) HM.remove(arr[pS]);
-            pS ++;
+        int lt = 0;
+        for ( int rt = k-1; rt < n; rt ++ ) {
+            map.put(arr[rt], map.getOrDefault(arr[rt], 0) + 1);
+            answerList.add(map.size());
+            map.put(arr[lt], map.get(arr[lt]) - 1);
+            if ( map.get(arr[lt]) == 0 ) map.remove(arr[lt]);
+            lt ++;
         }
-        return answer;
+
+        return answerList;
     }
 
     public static void main(String[] args) {

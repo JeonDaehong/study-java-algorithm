@@ -1,14 +1,13 @@
 package hash;
 import java.util.*;
 /*
-    3. 매출액의 종류
+    4. 모든 아나그램 찾기
 
-    날짜 : 2023-11-07
+    날짜 : 2023-11-07 / 2023-11-09
 
     [설명]
     S문자열에서 T문자열과 아나그램이 되는 S의 부분문자열의 개수를 구하는 프로그램을 작성하세요.
     아나그램 판별시 대소문자가 구분됩니다. 부분문자열은 연속된 문자열이어야 합니다.
-
 
 
     [입력]
@@ -22,6 +21,7 @@ import java.util.*;
 
     [ 풀이 시간 ]
     1. 10:00 ~ 11:00 ( 풀이 실패 다시 풀어 볼 것 )
+    2. 09:11 ~ 09:20 ( 풀이 성공, 근데 꼼꼼하게 풀 것 )
 
 
     [ 공부해야 할 내용 ]
@@ -34,25 +34,22 @@ public class Find_All_Anagrams {
 
     public static int solution(String str1, String str2) {
         int answer = 0;
-        Map<Character, Integer> str1HM = new HashMap<>();
-        Map<Character, Integer> str2HM = new HashMap<>();
+        HashMap<Character, Integer> map1 = new HashMap<>();
+        HashMap<Character, Integer> map2 = new HashMap<>();
         for ( char c : str2.toCharArray() ) {
-            str2HM.put(c, str2HM.getOrDefault(c, 0) + 1);
+            map2.put(c, map2.getOrDefault(c, 0) + 1);
         }
-        for ( int i=0; i<str2.length()-1; i++ ) {
-            str1HM.put(str1.charAt(i), str1HM.getOrDefault(str1.charAt(i), 0) +1 );
+        for ( int i = 0; i < str2.length() -1; i ++ ) {
+            map1.put(str1.charAt(i), map1.getOrDefault(str1.charAt(i), 0) + 1);
         }
-
-        int pS = 0;
-        for (int pE = str2.length()-1; pE < str1.length(); pE ++) {
-            str1HM.put(str1.charAt(pE), str1HM.getOrDefault(str1.charAt(pE), 0) +1 );
-            System.out.println(str1HM.equals(str2HM));
-            if (str1HM.equals(str2HM)) answer++;
-            str1HM.put(str1.charAt(pS), str1HM.get(str1.charAt(pS))-1);
-            if (str1HM.get(str1.charAt(pS)) == 0) str1HM.remove(str1.charAt(pS));
-            pS ++;
+        int lt = 0;
+        for ( int rt = str2.length() -1; rt < str1.length(); rt ++ ) {
+            map1.put(str1.charAt(rt), map1.getOrDefault(str1.charAt(rt), 0) + 1);
+            if ( map1.equals(map2) ) answer ++;
+            map1.put(str1.charAt(lt), map1.get(str1.charAt(lt)) -1);
+            if ( map1.get(str1.charAt(lt)) == 0) map1.remove(str1.charAt(lt));
+            lt ++;
         }
-
 
         return answer;
     }
