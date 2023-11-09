@@ -29,6 +29,8 @@ import java.util.*;
        여기서는 최대 100개를 3중 for문 해도 i+1, j+1로 시작해서 O(n^3)보다 적음. 3중 for문을 해도 Run Time Error가 안 생김.
     2. 같은 배열에서 중복 없이 for문을 돌리려면,
        i=0, j=i+1로 하면 됨.
+    3. 중복되지 않는 값을 넣는 자료구조에는 HashSet도 있지만, reverseOrder()처럼 자동으로 정렬해주는걸 사용하고 싶으면,
+       TreeSet 도 좋음. TreeSet<Integer> tSet = new TreeSet<>(Collections.reverseOrder());
 
 
  */
