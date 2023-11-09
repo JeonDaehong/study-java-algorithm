@@ -30,7 +30,9 @@ import java.util.*;
     2. 같은 배열에서 중복 없이 for문을 돌리려면,
        i=0, j=i+1로 하면 됨.
     3. 중복되지 않는 값을 넣는 자료구조에는 HashSet도 있지만, reverseOrder()처럼 자동으로 정렬해주는걸 사용하고 싶으면,
-       TreeSet 도 좋음. TreeSet<Integer> tSet = new TreeSet<>(Collections.reverseOrder());
+       TreeSet 이 좋음. TreeSet은 자동 정렬을 해주기 때문.
+       TreeSet<Integer> tSet = new TreeSet<>(); 이렇게 하면 오름차순 자동 정렬이고,
+       TreeSet<Integer> tSet = new TreeSet<>(Collections.reverseOrder()); 이렇게 하면 내림차순 자동 정렬이 된다.
 
 
  */
