@@ -31,18 +31,16 @@ import java.util.Scanner;
  */
 public class Anagram {
 
+    // 굳이 Map을 2개 만들 필요가 없다.
     public static String solution(String str1, String str2) {
-        Map<Character, Integer> map1 = new HashMap<>();
-        Map<Character, Integer> map2 = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>();
         for ( char c : str1.toCharArray() ) {
-            map1.put(c, map1.getOrDefault(c, 0) + 1 );
-        }
-        for ( char c : str2.toCharArray() ) {
-            map2.put(c, map2.getOrDefault(c, 0) + 1 );
+            map.put(c, map.getOrDefault(c, 0) + 1 );
         }
 
-        for ( char c : map1.keySet() ) {
-            if (!Objects.equals(map1.get(c), map2.get(c))) return "NO";
+        for ( char c : str2.toCharArray() ) {
+            if ( !map.containsKey(c) || map.get(c) == 0 ) return "NO";
+            map.put(c, map.get(c) - 1);
         }
 
         return "YES";

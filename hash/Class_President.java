@@ -55,7 +55,7 @@ public class Class_President {
     public static char solution(String s) {
 
         char answer = 0;
-        int max = 0;
+        int max = Integer.MIN_VALUE;
 
         Map<Character, Integer> hashMap = new HashMap<>();
         for ( char c : s.toCharArray()) {

@@ -1,7 +1,7 @@
 package hash;
 import java.util.*;
 /*
-    6. K번째 큰 수
+    5. K번째 큰 수
 
     날짜 : 2023-11-09
 
