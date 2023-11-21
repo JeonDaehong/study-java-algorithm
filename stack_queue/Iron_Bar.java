@@ -2,7 +2,7 @@ package stack_queue;
 import java.util.*;
 import java.io.*;
 /*
-    4. 쇠막대기
+    5. 쇠막대기
 
     날짜 : 2023-11-19
 
@@ -71,12 +71,12 @@ public class Iron_Bar {
 
     }
     public static void main(String[] args) throws NumberFormatException, IOException {
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        String str = bf.readLine();
+        String str = br.readLine();
         bw.write(String.valueOf(solution(str))); // bw는 무조건 String 타입
         bw.flush();
-        bf.close();
+        br.close();
         bw.close();
     }
 }
