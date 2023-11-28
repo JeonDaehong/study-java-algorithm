@@ -27,6 +27,7 @@ import java.util.*;
     [ 공부해야 할 내용 ]
     1. Map에서 equals도 동등의 역할을 할 수 있도록 오버라이드 되어있음. 그래서 equals로 맵의 값 비교가 가능하다.
        key값과 value값이 모두 동일하다면 equals 사용시 String 처럼 true가 나온다.
+    2. 슬라이드 윈도우 방식으로 풀 것.
 
 
  */

@@ -1,24 +1,23 @@
-class Time {
-
-    private int hour = 0;
-
-    Time(int hour) throws Exception {
-        if ( hour < 0 || hour > 23 ) throw new Exception("hour 는 0부터 23까지만 가능합니다.");
-        this.hour = hour;
-    }
-
-    public int getHour() {
-        return hour;
-    }
-    public void setHour(int hour) throws Exception {
-        if ( hour < 0 || hour > 23 ) throw new Exception("hour 는 0부터 23까지만 가능합니다.");
-        this.hour = hour;
+class CustomMonthException extends Exception {
+    public CustomMonthException() {
+        super("월은 1부터 12월까지의 값이어야 합니다.");
     }
 }
 public class Test2 {
-    public static void main(String[] args) throws Exception {
-        Time time = new Time(23);
-        time.setHour(25); // Exception
+    public static void monthCheck(int month) throws CustomMonthException {
+        try {
+            if ( month < 1 || month > 12 ) {
+                throw new CustomMonthException();
+            }
+        } catch ( CustomMonthException e ) {
+            e.printStackTrace();
+        }
+    }
+    public static void main(String[] args) {
+        try {
+            monthCheck(13);
+        } catch ( CustomMonthException e ) {
+            e.printStackTrace();
+        }
     }
 }
-
