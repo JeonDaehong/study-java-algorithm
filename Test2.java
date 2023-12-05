@@ -14,10 +14,7 @@ public class Test2 {
         }
     }
     public static void main(String[] args) {
-        try {
-            monthCheck(13);
-        } catch ( CustomMonthException e ) {
-            e.printStackTrace();
-        }
+        int[] i = new int[5];
+        System.out.println(i[0]);
     }
 }
