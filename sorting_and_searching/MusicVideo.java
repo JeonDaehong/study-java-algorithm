@@ -33,10 +33,12 @@ import java.util.StringTokenizer;
 
     [ 풀이 시간 ]
     1. 09:45 ~ 10:19 ( 1차 문제풀이 실패 )
+    2. 10:25 ~ 10:40 ( 공부 후 2차 문제풀이 성공 )
 
 
     [ 공부해야 할 내용 ]
-    1.
+    1. Stream 형식 공부할 것. Arrays.stream(arr).max().getAsInt(); 나, Arrays.stream(arr).sum(); 이런거는 꼭 공부할 것.
+    2. 이진 탐색은 정렬된 리스트에서 검색 범위를 줄여 나가면서 검색 값을 찾는 알고리즘이다.
 
  */
 public class MusicVideo {
