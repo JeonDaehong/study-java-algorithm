@@ -1,11 +1,14 @@
 package basic;
+
+import java.util.Scanner;
+
 /*
     6. 부분 집합 구하기 ( DFS )
 
-    날짜 : 2023-12-20
+    날짜 : 2023-12-21
 
     [설명]
-    자연수 N이 주어지면,  1부터 N까지의 원소를 가즌ㄴ 집합의 부분집합을 모두 출력하는 프로그램을 작성하세요.
+    자연수 N이 주어지면, 1부터 N까지의 원소를 가즌ㄴ 집합의 부분집합을 모두 출력하는 프로그램을 작성하세요.
 
 
     [입력]
@@ -17,16 +20,38 @@ package basic;
 
 
     [ 풀이 시간 ]
-    1. 12:20 ~ 12:
+    1. 09:20 ~ 09:35
 
-
-    [ 공부해야 할 내용 ]
-    1.
 
 
  */
 public class Find_Subset_DFS {
 
+    static int n;
+    static int[] ch;
 
+    public static void DFS(int L) {
+        if ( L == n+1 ) {
+            StringBuilder str = new StringBuilder();
+            for (int i=1; i<=n; i++ ) {
+                if ( ch[i] == 1 ) str.append(i).append(" ");
+            }
+            System.out.println(str);
+            return;
+        }
+        else {
+            ch[L] = 1;
+            DFS(L+1);
+            ch[L] = 0;
+            DFS(L+1);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        n = scan.nextInt();
+        ch = new int[n+1];
+        DFS(1);
+    }
 
 }
