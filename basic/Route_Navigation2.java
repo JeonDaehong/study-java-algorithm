@@ -56,7 +56,7 @@ public class Route_Navigation2 {
         n = scan.nextInt();
         m = scan.nextInt();
         graph = new ArrayList<ArrayList<Integer>>();
-        for ( int i=0; i<n; i++ ) {
+        for ( int i=0; i<=n; i++ ) {
             graph.add(new ArrayList<>());
         }
         ch = new boolean[n+1];
