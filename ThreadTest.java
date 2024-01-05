@@ -1,9 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.*;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
@@ -11,18 +8,14 @@ public class ThreadTest {
     private static final Logger log = Logger.getGlobal();
     private static final int MAX_ITEMS = 200;
     private static final Queue<Integer> sharedQueue = new LinkedList<>();
-    private static final Object lock = new Object();
+    private static final ExecutorService executorService = Executors.newFixedThreadPool(2);
 
     public static void main(String[] args) {
-
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
-
-        executorService.submit(() -> {
+        CompletableFuture<Void> producerFuture = CompletableFuture.runAsync(() -> {
+            //sharedQueue.add(1);
             for (int i = 1; i <= MAX_ITEMS; i++) {
-                synchronized (lock) {
+                synchronized (sharedQueue) {
                     sharedQueue.add(i);
-                    //log.info("Pushed: " + i);
-                    // Simulate some work being done
                 }
                 try {
                     Thread.sleep(10);
@@ -30,15 +23,17 @@ public class ThreadTest {
                     e.printStackTrace();
                 }
             }
-        });
+        }, executorService);
 
-        executorService.submit(() -> {
-            for (int i = 0; i < MAX_ITEMS; i++) {
-                synchronized (lock) {
+        CompletableFuture<Void> consumerFuture = CompletableFuture.runAsync(() -> {
+            while (!sharedQueue.isEmpty()) {
+                synchronized (sharedQueue) {
                     if (!sharedQueue.isEmpty()) {
                         int item = sharedQueue.poll();
                         log.info("Popped: " + item);
                         // Simulate some work being done
+                    } else {
+                        log.info("Empty");
                     }
                 }
                 try {
@@ -47,7 +42,12 @@ public class ThreadTest {
                     e.printStackTrace();
                 }
             }
-        });
+        }, executorService);
+
+        CompletableFuture<Void> allOf = CompletableFuture.allOf(producerFuture, consumerFuture);
+
+        // Block until both tasks are completed
+        allOf.join();
 
         executorService.shutdown();
     }
