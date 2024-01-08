@@ -1,7 +1,7 @@
 package dfs_bfs;
 import java.util.*;
 /*
-    6. 동전 교환
+    6. 조합의 경우수(메모이제이션)
 
     날짜 : 2024-01-08
 
