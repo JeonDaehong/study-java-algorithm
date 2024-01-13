@@ -3,7 +3,7 @@ package dfs_bfs;
 import java.util.Scanner;
 
 /*
-    10. 미로 탐색
+    10. 미로 탐색 ( DFS )
 
     날짜 : 2024-01-12
 
