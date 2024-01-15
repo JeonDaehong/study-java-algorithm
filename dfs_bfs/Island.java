@@ -2,7 +2,7 @@ package dfs_bfs;
 import java.util.*;
 
 /*
-    12. 토마토 ( BFS )
+    13. 섬나라 아일랜드 ( DFS )
 
     날짜 : 2024-01-15
 
