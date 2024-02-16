@@ -34,7 +34,6 @@ import java.util.*;
 
  */
 public class Cross_Stone_Bridge {
-
     public static int solution(int N) {
         int[] arr = new int[N+2]; // 맨 마지막 땅을 밟아야 하기 때문에 원래 공식 + 1을 더 해준다.
         arr[1] = 1;
@@ -44,7 +43,6 @@ public class Cross_Stone_Bridge {
         }
         return arr[N+1];
     }
-
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
