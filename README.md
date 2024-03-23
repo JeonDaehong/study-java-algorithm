@@ -42,18 +42,6 @@ Hello! This repository is dedicated to studying algorithms using Java. We cover 
 
 - [Inflearn - Java Algorithm Problem Solving for Coding Interviews](https://www.inflearn.com/course/%EC%9E%90%EB%B0%94-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-%EC%BD%94%ED%85%8C%EB%8C%80%EB%B9%84/dashboard)
 
-## How to Contribute
-
-1. Fork this repository.
-2. Create a new branch and start working: `git checkout -b feature/new-feature`
-3. Commit your changes: `git commit -am 'Add new feature'`
-4. Push the branch: `git push origin feature/new-feature`
-5. Open a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
 
 <hr>
 
@@ -100,11 +88,3 @@ This project is licensed under the [MIT License](LICENSE).
 ## 참고 자료
 
 - [인프런 - 자바 알고리즘 문제풀이 코테 대비](https://www.inflearn.com/course/%EC%9E%90%EB%B0%94-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-%EC%BD%94%ED%85%8C%EB%8C%80%EB%B9%84/dashboard)
-
-## 기여 방법
-
-1. 이 저장소를 포크합니다.
-2. 새로운 브랜치를 만들고 작업합니다: `git checkout -b feature/새로운-기능`
-3. 변경 사항을 커밋합니다: `git commit -am '새로운 기능 추가'`
-4. 브랜치를 푸시합니다: `git push origin feature/새로운-기능`
-5. 풀 리퀘스트를 생성합니다.
