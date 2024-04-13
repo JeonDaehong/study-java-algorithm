@@ -1,52 +1,5 @@
 # Java Algorithm Study
 
-Hello! This repository is dedicated to studying algorithms using Java. We cover various topics and document problem-solving approaches and the learning process.
-
-## Key Topics
-
-1. **Basic Data Structures**
-   - String
-   - Array
-   - Two Pointers Algorithm
-   - Sliding Window Algorithm
-   - HashMap
-   - HashSet
-   - TreeSet
-   - Stack
-   - Queue
-
-2. **Sorting and Searching**
-   - Sorting
-   - Searching
-
-3. **Recursive Algorithms**
-   - Recursive
-
-4. **Trees and Graphs**
-   - Tree
-   - Graph (Basic DFS, BFS)
-
-## Study Approach
-
-1. **Problem Solving**
-   - Solve diverse algorithmic problems.
-   - Organize solved problems in the directory.
-
-2. **Time Measurement**
-   - Measure the time taken for each problem to assist in optimization.
-
-3. **Annotations for Understanding**
-   - Add detailed comments in the source code to explain the solved problems and learning points.
-
-## Reference Materials
-
-- [Inflearn - Java Algorithm Problem Solving for Coding Interviews](https://www.inflearn.com/course/%EC%9E%90%EB%B0%94-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-%EC%BD%94%ED%85%8C%EB%8C%80%EB%B9%84/dashboard)
-
-
-<hr>
-
-# Java Algorithm Study
-
 안녕하세요! 이 레포지토리는 Java 언어를 사용하여 알고리즘을 공부하는 곳입니다. 여러 가지 주제에 대한 알고리즘을 다루고 있으며, 문제 풀이와 학습 과정을 기록하고 있습니다.
 
 ## 주요 주제
